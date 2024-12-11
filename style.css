@@ -1,0 +1,240 @@
+:root {
+  --paper-color: #f4efe1;
+  --ink-color: #2c1810;
+  --accent-color: #8b4513;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #2c1810;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#book {
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  background: var(--paper-color);
+  display: flex;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+#book::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--shadow-color),
+    transparent
+  );
+}
+
+.page-left {
+  flex: 1;
+  padding: 2rem;
+  border-right: 1px solid var(--shadow-color);
+  background: linear-gradient(to right, var(--paper-color), #e8e2d5);
+}
+
+.page-right {
+  flex: 3;
+  padding: 2rem;
+  overflow-y: auto;
+  background: linear-gradient(to right, #e8e2d5, var(--paper-color));
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.contents a {
+  color: var(--ink-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.contents a:hover {
+  color: var(--accent-color);
+}
+
+.contents a::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contents a:hover::before {
+  opacity: 1;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--ink-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tagline {
+  color: var(--accent-color);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  color: var(--ink-color);
+  font-size: 2rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+.book-highlight {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 8px;
+}
+
+.book-cover {
+  width: 200px;
+  height: 300px;
+  background: var(--accent-color);
+  border-radius: 4px;
+  box-shadow: 4px 4px 10px var(--shadow-color);
+}
+
+.book-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--ink-color);
+}
+
+.author {
+  color: var(--accent-color);
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.meeting, .location {
+  margin: 0.5rem 0;
+  color: var(--ink-color);
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.book-card {
+  text-align: center;
+}
+
+.book-cover-small {
+  width: 120px;
+  height: 180px;
+  background: var(--accent-color);
+  margin: 0 auto 1rem;
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px var(--shadow-color);
+}
+
+.book-card h4 {
+  margin: 0.5rem 0;
+  color: var(--ink-color);
+}
+
+.book-card p {
+  margin: 0;
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+.join-button {
+  background: var(--accent-color);
+  color: var(--paper-color);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.join-button:hover {
+  background: #723a0f;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #723a0f;
+}
+
+@media (max-width: 768px) {
+  #book {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .page-left {
+    border-right: none;
+    border-bottom: 1px solid var(--shadow-color);
+  }
+
+  .contents {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .book-highlight {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

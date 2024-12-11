@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--ink-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Crimson Text', Georgia, serif;
+  perspective: 1500px;
+}
+
+#book {
+  width: 95%;
+  max-width: 1400px;
+  height: 90vh;
+  background: var(--paper-color);
+  display: flex;
+  border-radius: 12px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: glowPulse 4s infinite;
+}
+
+.page-left {
+  flex: 1;
+  padding: 3rem;
+  background: linear-gradient(to right, var(--paper-color), #f0eadb);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.page-right {
+  flex: 2.5;
+  padding: 3rem;
+  background: linear-gradient(to left, var(--paper-color), #f0eadb);
+  overflow-y: auto;
+  animation: pageReveal 1s ease-out;
+}
+
+@media (max-width: 768px) {
+  #book {
+    flex-direction: column;
+    height: auto;
+    min-height: 90vh;
+  }
+  
+  .page-left, .page-right {
+    flex: none;
+  }
+}

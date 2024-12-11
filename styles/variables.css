@@ -1,0 +1,8 @@
+:root {
+  --paper-color: #f8f5e9;
+  --ink-color: #2a1810;
+  --accent-color: #9b4522;
+  --shadow-color: rgba(42, 24, 16, 0.15);
+  --gold: #bf9b30;
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
